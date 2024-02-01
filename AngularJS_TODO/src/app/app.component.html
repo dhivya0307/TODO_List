@@ -1,0 +1,18 @@
+<div id="container">
+  <h2>Todo App</h2>
+  <div id="addItemContainer">
+    <input
+      #newItem
+      placeholder="add an item"
+      (keyup.enter)="addTask(newItem.value); newItem.value = ''" id="addItemInput"/>
+    <button id="addTaskButton" (click)="addTask(newItem.value); newItem.value = ''">Add Task</button>
+  </div>
+<ul id=taskList *ngFor="let item of list let i = index">
+    <li>
+      <input class="task" type="text" placeholder=" " #newItem [value]="item.text"/>
+      <button class="edit-btn" (click)="editTask(newItem.value,i)">Edit</button>
+      <button class="delete-btn" (click)="deleteTask(item.id)">Delete</button>
+      
+</li>
+</ul>
+</div>
